@@ -1,0 +1,81 @@
+add
+asdfasdfasdf
+Given input format is not correct.
+
+add
+010-0000-1111:Bob:family
+Telephone number has been successfully added.
+
+add
+010-0000-1111:Alice:lab
+Telephone number already exist.
+
+add
+010-0000-1112:Alice:lab
+Telephone number has been successfully added.
+
+add
+010-0000-1113:Alice:family
+Telephone number has been successfully added.
+
+f alice
+Alice family 010-0000-1113
+Alice lab 010-0000-1112
+
+f asdfasdf
+There's no member to show
+
+showgroup family
+Alice family 010-0000-1113
+Bob family 010-0000-1111
+
+showgroup asdf
+There's no member to show.
+
+creategroup
+asdf
+Group [asdf] has been successfully created.
+
+creategroup
+family
+Group [family] is already exist.
+
+showall
+Alice family 010-0000-1113
+Alice lab 010-0000-1112
+Bob family 010-0000-1111
+
+remove
+asdfasdfasdf
+There's no number to be deleted.
+
+remove
+010-0000-1111
+Telephone number has been removed.
+
+remove
+010-0000-1111
+There's no number to be deleted.
+
+showgroup family
+Alice family 010-0000-1113
+
+remove
+010-0000-1113
+Telephone number has been removed.
+
+showgroup family
+There's no member to show.
+
+remove
+010-0000-1112
+Telephone number has been removed.
+
+showall
+There's no member to show
+
+remove
+010-0000-1111
+There's no number to be deleted.
+
+exit

@@ -1,0 +1,94 @@
+SQL> SELECT StudentID, Name FROM STUDENT WHERE Department = 'Computer Science' ORDER BY Name;
+
+ STUDENTID NAME                                                                 
+---------- --------------------                                                 
+   2012089 Emily                                                                
+   2014053 Hannah                                                               
+   2013047 Lily                                                                 
+   2008012 Noah                                                                 
+   2010105 Olivia                                                               
+
+SQL> SELECT DISTINCT StudentID FROM TAKES, COURSE WHERE TAKES.CourseNo = COURSE.CourseNo AND Classroom = 'E11, 402';
+
+ STUDENTID                                                                      
+----------                                                                      
+   2011102                                                                      
+   2014014                                                                      
+   2009057                                                                      
+   2014053                                                                      
+   2013045                                                                      
+   2010002                                                                      
+   2010105                                                                      
+   2012035                                                                      
+
+8 개의 행이 선택되었습니다.
+
+SQL> (SELECT StudentID FROM STUDENT WHERE Semesters < 4) INTERSECT (SELECT StudentID FROM TAKES WHERE CourseNo = 'CS360');
+
+ STUDENTID                                                                      
+----------                                                                      
+   2014014                                                                      
+   2014053                                                                      
+
+SQL> SELECT StudentID, Department FROM STUDENT WHERE StudentID NOT IN (SELECT StudentID FROM TAKES);
+
+ STUDENTID DEPARTMENT                                                           
+---------- --------------------------------------------------                   
+   2013047 Computer Science                                                     
+   2011016 Mathematical Science                                                 
+   2008012 Computer Science                                                     
+
+SQL> SELECT StudentID, CourseNo FROM TAKES WHERE CourseNo LIKE 'CS%';
+
+ STUDENTID COURSENO                                                             
+---------- --------------                                                       
+   2009057 CS360                                                                
+   2010002 CS360                                                                
+   2010105 CS206                                                                
+   2011102 CS360                                                                
+   2012089 CS230                                                                
+   2012089 CS206                                                                
+   2012089 CS101                                                                
+   2013029 CS101                                                                
+   2013029 CS230                                                                
+   2014014 CS101                                                                
+   2014014 CS360                                                                
+
+ STUDENTID COURSENO                                                             
+---------- --------------                                                       
+   2014014 CS206                                                                
+   2014053 CS360                                                                
+
+13 개의 행이 선택되었습니다.
+
+SQL> SELECT Name FROM STUDENT WHERE StudentID = (SELECT StudentID FROM TAKES WHERE CourseNo = 'CS360' AND ApplyDate >= ALL(SELECT ApplyDate FROM TAKES WHERE CourseNo = 'CS360'));
+
+NAME                                                                            
+--------------------                                                            
+Hannah                                                                          
+
+SQL> SELECT * FROM STUDENT WHERE DoubleMajor IS NOT NULL;
+
+ STUDENTID NAME                                                                 
+---------- --------------------                                                 
+DEPARTMENT                                          SEMESTERS                   
+-------------------------------------------------- ----------                   
+DOUBLEMAJOR                                                                     
+--------------------------------------------------                              
+   2008012 Noah                                                                 
+Computer Science                                            8                   
+Mathematical Science                                                            
+                                                                                
+   2012035 Amelia                                                               
+Electrical Engineering                                      6                   
+Computer Science                                                                
+
+ STUDENTID NAME                                                                 
+---------- --------------------                                                 
+DEPARTMENT                                          SEMESTERS                   
+-------------------------------------------------- ----------                   
+DOUBLEMAJOR                                                                     
+--------------------------------------------------                              
+                                                                                
+
+SQL> SPOOL off

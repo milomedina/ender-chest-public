@@ -1,0 +1,5 @@
+Instruction of Program1 and Program2
+1. Program1 and Program2 are identical except data structure that are used. Program1 will use singly linked list and Program2 will use doubly linked list.
+2. If you want to exit, type "q" or "exit".
+3. Other instructions are same as the instructions on the problem pdf.
+   (-In command "f" and "showgroup", extra data must be in same line.)

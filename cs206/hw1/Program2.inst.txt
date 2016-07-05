@@ -1,0 +1,6 @@
+Instruction of Program2
+1. Choose operation. 1 is for addition, 2 is for multiplication, 3 is for differentation.
+2. Addition and multiplication will require 2 polynomials and differentation will require 1 polynomial.
+3. Format and restrictions of entering polynomial is same as program1.
+4. Program will print out polynomial(s) that you entered and the result of the operation that you choose.
+5. If you want to exit, enter q or Q when choose operations.

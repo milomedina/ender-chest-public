@@ -1,0 +1,6 @@
+Instruction of Program1
+1. Input polynomial in form a_1 b_1 a_2 b_2 ... a_n b_n.
+2. Program will interpret as a_1*x^b_1+ ... + a_n*x^b_n.
+3. a_1, ... a_n should be integer and b_1, ... b_n should be positive integer that strictly decreasing.
+4. Then, program will print out interpreted polynomial.
+5. If you want to exit, enter q or Q

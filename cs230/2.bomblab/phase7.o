@@ -1,0 +1,46 @@
+0000000000400ea4 <fun7>:
+  400ea4:	48 83 ec 08          	sub    $0x8,%rsp
+  400ea8:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+  400ead:	48 85 ff             	test   %rdi,%rdi
+  400eb0:	74 29                	je     400edb <fun7+0x37>
+  400eb2:	8b 17                	mov    (%rdi),%edx
+  400eb4:	39 f2                	cmp    %esi,%edx
+  400eb6:	7e 0d                	jle    400ec5 <fun7+0x21>
+  400eb8:	48 8b 7f 08          	mov    0x8(%rdi),%rdi
+  400ebc:	e8 e3 ff ff ff       	callq  400ea4 <fun7>
+  400ec1:	01 c0                	add    %eax,%eax
+  400ec3:	eb 16                	jmp    400edb <fun7+0x37>
+  400ec5:	b8 00 00 00 00       	mov    $0x0,%eax
+  400eca:	39 f2                	cmp    %esi,%edx
+  400ecc:	74 0d                	je     400edb <fun7+0x37>
+  400ece:	48 8b 7f 10          	mov    0x10(%rdi),%rdi
+  400ed2:	e8 cd ff ff ff       	callq  400ea4 <fun7>
+  400ed7:	8d 44 00 01          	lea    0x1(%rax,%rax,1),%eax
+  400edb:	48 83 c4 08          	add    $0x8,%rsp
+  400edf:	c3                   	retq   
+
+0000000000400ee0 <secret_phase>:
+  400ee0:	53                   	push   %rbx
+  400ee1:	e8 ea 05 00 00       	callq  4014d0 <read_line>
+  400ee6:	ba 0a 00 00 00       	mov    $0xa,%edx
+  400eeb:	be 00 00 00 00       	mov    $0x0,%esi
+  400ef0:	48 89 c7             	mov    %rax,%rdi
+  400ef3:	e8 80 fc ff ff       	callq  400b78 <strtol@plt>
+  400ef8:	89 c3                	mov    %eax,%ebx
+  400efa:	8d 43 ff             	lea    -0x1(%rbx),%eax
+  400efd:	3d e8 03 00 00       	cmp    $0x3e8,%eax
+  400f02:	76 05                	jbe    400f09 <secret_phase+0x29>
+  400f04:	e8 d1 04 00 00       	callq  4013da <explode_bomb>
+  400f09:	89 de                	mov    %ebx,%esi
+  400f0b:	bf 20 39 60 00       	mov    $0x603920,%edi
+  400f10:	e8 8f ff ff ff       	callq  400ea4 <fun7>
+  400f15:	85 c0                	test   %eax,%eax
+  400f17:	74 05                	je     400f1e <secret_phase+0x3e>
+  400f19:	e8 bc 04 00 00       	callq  4013da <explode_bomb>
+  400f1e:	bf 50 23 40 00       	mov    $0x402350,%edi
+  400f23:	e8 90 fb ff ff       	callq  400ab8 <puts@plt>
+  400f28:	e8 24 04 00 00       	callq  401351 <phase_defused>
+  400f2d:	5b                   	pop    %rbx
+  400f2e:	c3                   	retq   
+
+

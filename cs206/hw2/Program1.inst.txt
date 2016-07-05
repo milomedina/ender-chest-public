@@ -1,0 +1,8 @@
+Instruction of Program1
+1. Input fully parenthesized algebric expression.
+2. No unary operator "-" permitted.
+3. While calculating, float value will be truncated to int.
+4. All whitespace characters will be ignored.
+5. Number of numbers inside expression cannot exceed 1000, and number of operations cannot exceed 1000.
+6. All negative value (ex:-4) must be in parenthesis (ex: (-4-4) invalid, ((-4)-4) valid)
+6. If you want to exit, enter q or Q

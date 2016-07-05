@@ -1,0 +1,3 @@
+Instruction of Program
+1. Input positive integer.
+2. If you want to exit, type "q" or "Q".

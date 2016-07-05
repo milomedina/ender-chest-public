@@ -1,0 +1,5 @@
+("Adam Smith",3)("John Galbraith",2)("Joseph Schumpeter",2)("John M. Ketnes",1)
+Reservation Order: ("John M. Ketnes",1)("John Galbraith",2)("Joseph Schumpeter",2)("Adam Smith",3)
+
+("A",3)("B",2)("C",2)("D",1)("E",3)("F",2)("G",1)
+Reservation Order: ("D",1)("G",1)("B",2)("C",2)("F",2)("A",3)("E",3)

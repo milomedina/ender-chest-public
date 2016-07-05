@@ -1,0 +1,13 @@
+Test for p=2357, q=2551, M=1234
+- Keys: e=80299, d=4077499
+-- pi(n)=6007800, gcd(pi(n), e)=1, e*d mod pi(n)=1
+- Encrypted: C=3924703
+- Decrypted: D=1234
+= Success (i.e M = D)
+
+Test for p=885320963, q=238855417, M=1234567
+- Keys: e=168853387609758175, d=81206153557758799
+-- pi(n)=211463706672030192, gcd(pi(n), e)=1, e*d mod pi(n)=1
+- Encrypted: C=206292427933861542
+- Decrypted: D=1234567
+= Success (i.e M = D)

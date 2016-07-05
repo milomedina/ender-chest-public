@@ -1,0 +1,5 @@
+Instruction of Program2
+1. Enter reservation data.
+2. SHOULD NOT input whitespace characters except inside of ""
+3. Number of reservation data cannot exceed 1000 for each class.
+4. If you want to exit, enter q or Q when choose operations.

@@ -1,0 +1,45 @@
+000000000040102a <phase_2>:
+# init func:
+  40102a:	55                   	push   %rbp
+  40102b:	53                   	push   %rbx
+  40102c:	48 83 ec 28          	sub    $0x28,%rsp
+
+# read six number:
+  401030:	48 89 e6             	mov    %rsp,%rsi
+  401033:	e8 d8 03 00 00       	callq  401410 <read_six_numbers>
+
+# if r[0] == 1?
+  401038:	83 3c 24 01          	cmpl   $0x1,(%rsp)
+  40103c:	74 05                	je     401043 <phase_2+0x19>
+# else:
+  40103e:	e8 97 03 00 00       	callq  4013da <explode_bomb>
+# then:
+  401043:	48 89 e5             	mov    %rsp,%rbp
+# rbx = r[1]
+  401046:	48 8d 5c 24 04       	lea    0x4(%rsp),%rbx
+# rbp += 24
+  40104b:	48 83 c5 18          	add    $0x18,%rbp
+
+loop:
+# eax = r[i]
+  40104f:	8b 43 fc             	mov    -0x4(%rbx),%eax
+# eax *= 2
+  401052:	01 c0                	add    %eax,%eax
+# if r[i]*2 == r[i+1] pass
+  401054:	39 03                	cmp    %eax,(%rbx)
+  401056:	74 05                	je     40105d <phase_2+0x33>
+  401058:	e8 7d 03 00 00       	callq  4013da <explode_bomb>
+
+# rbx += 4
+  40105d:	48 83 c3 04          	add    $0x4,%rbx
+  
+# rbx == rbp terminate, iterate 6 times
+  401061:	48 39 eb             	cmp    %rbp,%rbx
+  401064:	75 e9                	jne    40104f <phase_2+0x25>
+
+end func:
+  401066:	48 83 c4 28          	add    $0x28,%rsp
+  40106a:	5b                   	pop    %rbx
+  40106b:	5d                   	pop    %rbp
+  40106c:	c3                   	retq   
+

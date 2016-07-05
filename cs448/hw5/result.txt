@@ -1,0 +1,4 @@
+Test for p=809, a=3, b=500
+- x = 658
+- b' = a^x mod p = 500
+= Success (i.e b' = b)

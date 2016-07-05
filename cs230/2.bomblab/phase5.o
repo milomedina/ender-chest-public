@@ -1,0 +1,36 @@
+000000000040106d <phase_5>:
+  40106d:	53                   	push   %rbx
+  40106e:	48 83 ec 10          	sub    $0x10,%rsp
+  401072:	48 89 fb             	mov    %rdi,%rbx
+  401075:	e8 86 01 00 00       	callq  401200 <string_length>
+  40107a:	83 f8 06             	cmp    $0x6,%eax
+  40107d:	74 05                	je     401084 <phase_5+0x17>
+  40107f:	e8 56 03 00 00       	callq  4013da <explode_bomb>
+
+  401084:	48 89 e0             	mov    %rsp,%rax
+  401087:	48 8d 73 06          	lea    0x6(%rbx),%rsi
+  40108b:	ba e0 23 40 00       	mov    $0x4023e0,%edx
+  
+  401090:	48 0f be 0b          	movsbq (%rbx),%rcx
+  401094:	83 e1 0f             	and    $0xf,%ecx
+  401097:	0f b6 0c 0a          	movzbl (%rdx,%rcx,1),%ecx
+  40109b:	88 08                	mov    %cl,(%rax)
+  40109d:	48 83 c3 01          	add    $0x1,%rbx
+
+  4010a1:	48 83 c0 01          	add    $0x1,%rax
+  
+  4010a5:	48 39 f3             	cmp    %rsi,%rbx
+  4010a8:	75 e6                	jne    401090 <phase_5+0x23>
+
+# devils
+  4010aa:	c6 44 24 06 00       	movb   $0x0,0x6(%rsp)
+  4010af:	48 89 e7             	mov    %rsp,%rdi
+  4010b2:	be 98 23 40 00       	mov    $0x402398,%esi
+  4010b7:	e8 60 01 00 00       	callq  40121c <strings_not_equal>
+  4010bc:	85 c0                	test   %eax,%eax
+  4010be:	74 05                	je     4010c5 <phase_5+0x58>
+  4010c0:	e8 15 03 00 00       	callq  4013da <explode_bomb>
+  4010c5:	48 83 c4 10          	add    $0x10,%rsp
+  4010c9:	5b                   	pop    %rbx
+  4010ca:	c3                   	retq   
+

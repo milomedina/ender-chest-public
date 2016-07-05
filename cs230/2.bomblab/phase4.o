@@ -1,0 +1,67 @@
+00000000004010e7 <phase_4>:
+  4010e7:	48 83 ec 18          	sub    $0x18,%rsp
+  4010eb:	48 8d 4c 24 08       	lea    0x8(%rsp),%rcx
+  4010f0:	48 8d 54 24 0c       	lea    0xc(%rsp),%rdx
+  
+  4010f5:	be 5a 24 40 00       	mov    $0x40245a,%esi
+  4010fa:	b8 00 00 00 00       	mov    $0x0,%eax
+  
+  4010ff:	e8 c4 f9 ff ff       	callq  400ac8 <__isoc99_sscanf@plt>
+  401104:	83 f8 02             	cmp    $0x2,%eax
+  401107:	75 0d                	jne    401116 <phase_4+0x2f>
+  
+  401109:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+  40110d:	85 c0                	test   %eax,%eax
+  40110f:	78 05                	js     401116 <phase_4+0x2f>
+  
+  401111:	83 f8 0e             	cmp    $0xe,%eax
+  401114:	7e 05                	jle    40111b <phase_4+0x34>
+  
+  401116:	e8 bf 02 00 00       	callq  4013da <explode_bomb>
+  
+  40111b:	ba 0e 00 00 00       	mov    $0xe,%edx
+  401120:	be 00 00 00 00       	mov    $0x0,%esi
+  401125:	8b 7c 24 0c          	mov    0xc(%rsp),%edi
+  401129:	e8 42 fd ff ff       	callq  400e70 <func4>
+
+  40112e:	83 f8 12             	cmp    $0x12,%eax
+  401131:	75 07                	jne    40113a <phase_4+0x53>
+  
+  401133:	83 7c 24 08 12       	cmpl   $0x12,0x8(%rsp)
+  401138:	74 05                	je     40113f <phase_4+0x58>
+  
+  40113a:	e8 9b 02 00 00       	callq  4013da <explode_bomb>
+
+  40113f:	48 83 c4 18          	add    $0x18,%rsp
+  401143:	c3                   	retq 
+
+
+0000000000400e70 <func4>:
+  400e70:	53                   	push   %rbx
+  
+  400e71:	89 d0                	mov    %edx,%eax
+  400e73:	29 f0                	sub    %esi,%eax
+  400e75:	89 c3                	mov    %eax,%ebx
+
+  400e77:	c1 eb 1f             	shr    $0x1f,%ebx
+  400e7a:	8d 04 03             	lea    (%rbx,%rax,1),%eax
+  400e7d:	d1 f8                	sar    %eax
+  400e7f:	8d 1c 30             	lea    (%rax,%rsi,1),%ebx
+  
+  400e82:	39 fb                	cmp    %edi,%ebx
+  400e84:	7e 0c                	jle    400e92 <func4+0x22>
+  
+  400e86:	8d 53 ff             	lea    -0x1(%rbx),%edx
+  400e89:	e8 e2 ff ff ff       	callq  400e70 <func4>
+  400e8e:	01 c3                	add    %eax,%ebx
+  400e90:	eb 0e                	jmp    400ea0 <func4+0x30>
+  
+  400e92:	39 fb                	cmp    %edi,%ebx
+  400e94:	7d 0a                	jge    400ea0 <func4+0x30>
+  400e96:	8d 73 01             	lea    0x1(%rbx),%esi
+  400e99:	e8 d2 ff ff ff       	callq  400e70 <func4>
+  400e9e:	01 c3                	add    %eax,%ebx
+  400ea0:	89 d8                	mov    %ebx,%eax
+  
+  400ea2:	5b                   	pop    %rbx
+  400ea3:	c3                   	retq   

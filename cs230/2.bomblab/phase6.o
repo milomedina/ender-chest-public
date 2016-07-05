@@ -1,0 +1,90 @@
+0000000000400f2f <phase_6>:
+  400f2f:	41 54                	push   %r12
+  400f31:	55                   	push   %rbp
+  400f32:	53                   	push   %rbx
+  400f33:	48 83 ec 50          	sub    $0x50,%rsp
+  400f37:	48 8d 6c 24 30       	lea    0x30(%rsp),%rbp
+  400f3c:	48 89 ee             	mov    %rbp,%rsi
+  400f3f:	e8 cc 04 00 00       	callq  401410 <read_six_numbers>
+  
+  400f44:	41 bc 00 00 00 00    	mov    $0x0,%r12d
+  400f4a:	8b 45 00             	mov    0x0(%rbp),%eax
+  400f4d:	83 e8 01             	sub    $0x1,%eax
+
+# number unique from 1 ~ 6
+  400f50:	83 f8 05             	cmp    $0x5,%eax
+  400f53:	76 05                	jbe    400f5a <phase_6+0x2b>
+  400f55:	e8 80 04 00 00       	callq  4013da <explode_bomb>
+
+
+  400f5a:	41 83 c4 01          	add    $0x1,%r12d
+  400f5e:	41 83 fc 06          	cmp    $0x6,%r12d
+  400f62:	74 22                	je     400f86 <phase_6+0x57>
+  
+  400f64:	44 89 e3             	mov    %r12d,%ebx
+  400f67:	48 63 c3             	movslq %ebx,%rax
+  400f6a:	8b 55 00             	mov    0x0(%rbp),%edx
+  400f6d:	3b 54 84 30          	cmp    0x30(%rsp,%rax,4),%edx
+  400f71:	75 05                	jne    400f78 <phase_6+0x49>
+  400f73:	e8 62 04 00 00       	callq  4013da <explode_bomb>
+  
+  400f78:	83 c3 01             	add    $0x1,%ebx
+  400f7b:	83 fb 05             	cmp    $0x5,%ebx
+  400f7e:	7e e7                	jle    400f67 <phase_6+0x38>
+  400f80:	48 83 c5 04          	add    $0x4,%rbp
+  400f84:	eb c4                	jmp    400f4a <phase_6+0x1b>
+  
+
+# other loop
+  400f86:	bb 00 00 00 00       	mov    $0x0,%ebx
+  400f8b:	4c 8d 44 24 30       	lea    0x30(%rsp),%r8
+  400f90:	bd 01 00 00 00       	mov    $0x1,%ebp
+  400f95:	be 50 37 60 00       	mov    $0x603750,%esi
+  400f9a:	48 89 e7             	mov    %rsp,%rdi
+  400f9d:	eb 19                	jmp    400fb8 <phase_6+0x89>
+  
+  400f9f:	48 8b 52 08          	mov    0x8(%rdx),%rdx
+  400fa3:	83 c0 01             	add    $0x1,%eax
+  400fa6:	39 c8                	cmp    %ecx,%eax
+  400fa8:	75 f5                	jne    400f9f <phase_6+0x70>
+  400faa:	48 89 14 5f          	mov    %rdx,(%rdi,%rbx,2)
+  400fae:	48 83 c3 04          	add    $0x4,%rbx
+  400fb2:	48 83 fb 18          	cmp    $0x18,%rbx
+  400fb6:	74 10                	je     400fc8 <phase_6+0x99>
+  400fb8:	41 8b 0c 18          	mov    (%r8,%rbx,1),%ecx
+  400fbc:	89 e8                	mov    %ebp,%eax
+  400fbe:	48 89 f2             	mov    %rsi,%rdx
+  400fc1:	83 f9 01             	cmp    $0x1,%ecx
+  400fc4:	7f d9                	jg     400f9f <phase_6+0x70>
+  400fc6:	eb e2                	jmp    400faa <phase_6+0x7b>
+  
+  400fc8:	48 8b 1c 24          	mov    (%rsp),%rbx
+  400fcc:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  400fd1:	48 89 43 08          	mov    %rax,0x8(%rbx)
+  400fd5:	48 8b 54 24 10       	mov    0x10(%rsp),%rdx
+  400fda:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  400fde:	48 8b 44 24 18       	mov    0x18(%rsp),%rax
+  400fe3:	48 89 42 08          	mov    %rax,0x8(%rdx)
+  400fe7:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
+  400fec:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  400ff0:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+  400ff5:	48 89 42 08          	mov    %rax,0x8(%rdx)
+  400ff9:	48 c7 40 08 00 00 00 	movq   $0x0,0x8(%rax)
+  401000:	00 
+  401001:	bd 00 00 00 00       	mov    $0x0,%ebp
+  
+  401006:	48 8b 43 08          	mov    0x8(%rbx),%rax
+  40100a:	8b 13                	mov    (%rbx),%edx
+  40100c:	3b 10                	cmp    (%rax),%edx
+  40100e:	7e 05                	jle    401015 <phase_6+0xe6>
+  401010:	e8 c5 03 00 00       	callq  4013da <explode_bomb>
+  401015:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
+  401019:	83 c5 01             	add    $0x1,%ebp
+  40101c:	83 fd 05             	cmp    $0x5,%ebp
+  40101f:	75 e5                	jne    401006 <phase_6+0xd7>
+
+  401021:	48 83 c4 50          	add    $0x50,%rsp
+  401025:	5b                   	pop    %rbx
+  401026:	5d                   	pop    %rbp
+  401027:	41 5c                	pop    %r12
+  401029:	c3                   	retq   
