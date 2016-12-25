@@ -3,7 +3,7 @@
 This github repository is used to share homework solutions and source codes.
 
 ### Info
-- Last Semester: **2016 Spring**
+- Last Semester: **2016 Fall**
 - Sensitive informations such as student id, server domain and password are removed.
 - Any solutions and codes without collaborators' permissions are kept private and not shown.
 
@@ -21,5 +21,8 @@ This github repository is used to share homework solutions and source codes.
 06. **CS320** (2015 Spring): Programming Language
 07. **CS360** (2015 Spring): Introduction to Database
 08. **CS402** (2016 Spring): Introduction to Logic for Computer Science
-09. **CS448** (2015 Spring): Introduction to Information Security
-10. **CS520** (2015 Fall): Theory of Programming Language
+09. **CS420** (2016 Fall): Compiler Design
+10. **CS448** (2015 Spring): Introduction to Information Security
+11. **CS490** (2016 Fall): Research in Computer Science
+12. **CS492** (2016 Fall): Search Based Software Engineering
+13. **CS520** (2015 Fall): Theory of Programming Language
